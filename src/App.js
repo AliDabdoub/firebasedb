@@ -1,20 +1,24 @@
 import './App.css';
 import SignIn from './Sign-in.component.jsx';
-import { createContext, useState } from 'react';
+import { createContext} from 'react';
 import Settings from './Settings.component';
+import { MyComponent } from './Mycomponent.component.jsx';
+import { Mycomponentseconde } from './Mycomponentseconde';
+import {MyProvider} from './Myprovider.component.jsx'
 
 export const ContextName = createContext()
 
 
 function App() {
-  const name = useState('sss')
   return (
-    <ContextName.Provider value={name}>
+    <MyProvider>
+      <MyComponent />
+      <Mycomponentseconde />
       <div>
-        <SignIn />
-        <Settings />
+      <SignIn />
+      <Settings />
       </div> 
-    </ContextName.Provider>
+    </MyProvider>
   );
 }
 
