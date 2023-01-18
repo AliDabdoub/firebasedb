@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import SignIn from './Sign-in.component.jsx';
+import { createContext, useState } from 'react';
+import Settings from './Settings.component';
+
+export const ContextName = createContext()
+
 
 function App() {
+  const name = useState('sss')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextName.Provider value={name}>
+      <div>
+        <SignIn />
+        <Settings />
+      </div> 
+    </ContextName.Provider>
   );
 }
 
